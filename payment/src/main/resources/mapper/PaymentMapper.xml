@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.indoor.bridge.payment.dao.PaymentDao">
+    <select id="getByPaymentId" parameterType="long" resultType="com.indoor.bridge.payment.entities.Payment">
+        select * from `Payment` where id = #{id}
+    </select>
+
+    <insert id="savePayment" parameterType="com.indoor.bridge.payment.entities.Payment"
+            useGeneratedKeys="true">
+        insert into PAYMENT(PAYMENT_ID,PAYMENT_SOURCE,PAYMENT_REF_ID,PAYMENT_STATUS,AMOUNT,MEMO,CURRENCY,CREATION_DATE, LAST_MODIFIED_DATE) values
+        (#{paymentId},#{paymentSource},#{paymentRefId},#{paymentStatus},#{amount},#{memo},#{currency}, #{creationDate}, #{lastModifiedDate})
+    </insert>
+</mapper>
