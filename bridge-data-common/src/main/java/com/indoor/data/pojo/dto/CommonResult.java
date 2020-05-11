@@ -1,4 +1,4 @@
-package com.indoor.bridge.payment.dto;
+package com.indoor.data.pojo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.indoor.bridge.payment.dao;
 
-import com.indoor.bridge.payment.entities.Payment;
+import com.indoor.data.entities.Payment;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface PaymentDao {
 
-    Payment create(Payment payment);
+    Integer create(Payment payment);
 
-    int delete(Long paymentId);
+    Integer delete(Long paymentId);
 
     Payment getPaymentById(Long paymentId);
 

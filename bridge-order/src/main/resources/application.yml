@@ -1,0 +1,17 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: bridge-order-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Infy@8888
+    url: jdbc:mysql://localhost:3306/bridge
+
+
+mybatis:
+  type-aliases-package: com.indoor.bridge.entities
+  mapper-locations: classpath:mapper/*.xml

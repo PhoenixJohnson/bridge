@@ -3,13 +3,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.indoor.bridge.payment.dao.PaymentDao">
-    <select id="getByPaymentId" parameterType="long" resultType="com.indoor.bridge.payment.entities.Payment">
-        select * from `Payment` where id = #{id}
+    <resultMap type="com.indoor.data.entities.Payment" id="PaymentResult">
+        <result property="paymentId" column="PAYMENT_ID"/>
+        <result property="paymentSource" column="PAYMENT_SOURCE"/>
+        <result property="paymentRefId" column="PAYMENT_REF_ID"/>
+        <result property="paymentStatus" column="PAYMENT_STATUS"/>
+        <result property="amount" column="AMOUNT"/>
+        <result property="currency" column="CURRENCY"/>
+        <result property="creationDate" column="CREATION_DATE"/>
+        <result property="lastModifiedDate" column="LAST_MODIFIED_DATE"/>
+    </resultMap>
+
+    <select id="getPaymentById" parameterType="long" resultMap="PaymentResult">
+        select * from Payment where PAYMENT_ID = #{id}
     </select>
 
-    <insert id="savePayment" parameterType="com.indoor.bridge.payment.entities.Payment"
+    <insert id="create" parameterType="com.indoor.data.entities.Payment"
             useGeneratedKeys="true">
-        insert into PAYMENT(PAYMENT_ID,PAYMENT_SOURCE,PAYMENT_REF_ID,PAYMENT_STATUS,AMOUNT,MEMO,CURRENCY,CREATION_DATE, LAST_MODIFIED_DATE) values
-        (#{paymentId},#{paymentSource},#{paymentRefId},#{paymentStatus},#{amount},#{memo},#{currency}, #{creationDate}, #{lastModifiedDate})
+        insert into PAYMENT(PAYMENT_SOURCE,PAYMENT_REF_ID,PAYMENT_STATUS,AMOUNT,CURRENCY,CREATION_DATE, LAST_MODIFIED_DATE) values
+        (#{paymentSource},#{paymentRefId},#{paymentStatus},#{amount},#{currency}, #{creationDate}, #{lastModifiedDate})
     </insert>
 </mapper>

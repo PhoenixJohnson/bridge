@@ -1,4 +1,4 @@
-package com.indoor.bridge.payment.entities;
+package com.indoor.data.entities;
 
 import lombok.*;
 

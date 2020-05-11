@@ -1,8 +1,8 @@
 package com.indoor.bridge.payment.service.impl;
 
 import com.indoor.bridge.payment.dao.PaymentDao;
-import com.indoor.bridge.payment.entities.Payment;
 import com.indoor.bridge.payment.service.PaymentService;
+import com.indoor.data.entities.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +16,15 @@ public class PaymentServiceImpl implements PaymentService {
     private PaymentDao paymentDao;
 
     @Override
-    public Payment create(Payment payment) {
+    public Integer create(Payment payment) {
+        Date now = new Date();
+        payment.setCreationDate(now);
+        payment.setLastModifiedDate(now);
         return paymentDao.create(payment);
     }
 
     @Override
-    public int delete(Long paymentId) {
+    public Integer delete(Long paymentId) {
         return paymentDao.delete(paymentId);
     }
 

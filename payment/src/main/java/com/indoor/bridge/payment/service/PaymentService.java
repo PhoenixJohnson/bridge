@@ -1,15 +1,16 @@
 package com.indoor.bridge.payment.service;
 
-import com.indoor.bridge.payment.entities.Payment;
+
+import com.indoor.data.entities.Payment;
 
 import java.util.Date;
 import java.util.List;
 
 public interface PaymentService {
 
-    Payment create(Payment payment);
+    Integer create(Payment payment);
 
-    int delete(Long paymentId);
+    Integer delete(Long paymentId);
 
     Payment getPaymentById(Long paymentId);
 
